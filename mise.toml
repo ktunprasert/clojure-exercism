@@ -1,0 +1,6 @@
+[tools]
+clojure = "latest"
+"github:clojure-lsp/clojure-lsp" = "latest"
+java = "latest"
+leiningen = "latest"
+zprint = "latest"
