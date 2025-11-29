@@ -1,0 +1,26 @@
+vim.lsp.enable('clojure_lsp')
+
+local term_ops = { auto_close = false }
+
+local entries = {
+    -- {
+    --     "󰶳 v:run",
+    --     function() Snacks.terminal(("v run %s"):format(vim.fn.expand("%")), term_ops) end,
+    --     "v",
+    -- },
+    {
+        "󰶳 v:test",
+        function() Snacks.terminal("lein test", term_ops) end,
+        "<space>",
+    },
+    {
+        "󰶳 submit",
+        function() Snacks.terminal(("exercism submit %s"):format(vim.fn.expand("%")), term_ops) end,
+        "<CR>",
+    },
+}
+
+
+for _, value in pairs(entries) do
+    Menus.append(value[1], value[2], value[3])
+end
