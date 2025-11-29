@@ -14,11 +14,9 @@
   "Takes a string representing a log line
    and returns its level in lower-case."
   [s]
-  (-> s
-      (str/split #"[\[\]]")
-      (doto tap>)
-      second
-      str/lower-case))
+  (->> (re-find (re-matcher #"([^\[]+)]" s))
+       last
+       str/lower-case))
 
 (log-level "[error]: hi")
 
