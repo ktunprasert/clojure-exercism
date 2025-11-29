@@ -6,9 +6,14 @@
   "Returns the assembly line's production rate per hour,
    taking into account its success rate"
   [speed]
-  (* (success-rate speed) speed 221))
+  (-> speed
+      success-rate
+      (* speed 221)))
 
 (defn working-items
   "Calculates how many working cars are produced per minute"
   [speed]
-  (int (quot (production-rate speed) 60)))
+  (-> speed
+      production-rate
+      (quot 60)
+      int))
