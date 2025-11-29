@@ -3,3 +3,4 @@
 .lsp/
 target/
 
+log-levels/.lein-failures
